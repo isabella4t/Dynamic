@@ -6,14 +6,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //fib
+        System.out.println("Fibonacci Problem");
         for(int i=0; i<50;i++){
             System.out.println(fib(i));
-            System.out.println(ne(fib(i)));
+           // System.out.println(ne(fib(i)));
         }
 
         System.out.println("Factory Problem");
-        System.out.println(factory(7));
+        //pattern: even is false odd is true
+        for(int i=0; i<30;i++){
+            System.out.println(factory(i));
+        }
+        System.out.println("Bigger number (71): "+factory(71));
 
     }
 
@@ -34,10 +38,10 @@ public class Main {
 
    static boolean factory(int n){
        if(n==0) return false;
-       if(!fac.containsKey(n-1)) return true;
+       if(fac.containsKey(n-1)) return !fac.get(n-1);
        boolean before = factory(n-1);
+       //opposite of result from before to make alternating spots
        fac.put(n,!before);
-       //return nm1 + nm2;
        return !before;
    }
 
